@@ -149,8 +149,8 @@ class _PersonalMatchQuestionScreenState extends State<PersonalMatchQuestionScree
                       ResponseFormItem(
                         question: 'When choosing a gift, what matters most to you?',
                         responseText: options[selectedIdx!],
-                     ),
-                  );
+                      ),
+                    );
                   context.push('/personal-match-result'); 
                 }: null,
                   child: Text(

@@ -22,7 +22,6 @@ class StartGivingScreen extends StatelessWidget {
       final appState = context.read<ApplicationState>();
       appState.giftpotState.setOccasionAndPrice(occasion: label, priceRange: price);
     try{
-
       switch (i) {
     case 0:
       // await appState.giftpotState.fetchGiftRecommendationsData(
@@ -35,14 +34,9 @@ class StartGivingScreen extends StatelessWidget {
       context.push('/personal-match-question');
       break;
     case 2:
-      // await appState.giftpotState.fetchGiftRecommendationsData(
-      //   occasion: label,
-      //   priceRange: price,
-      // );
       context.push('/shared-giving-suggestions', extra: {'occasion': label, 'priceRange': price});
       break;
   }
-
     }catch(e){
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -53,7 +47,6 @@ class StartGivingScreen extends StatelessWidget {
       );
     }
 }
-
     final options = [
       {
         'title': 'Curated Picks',

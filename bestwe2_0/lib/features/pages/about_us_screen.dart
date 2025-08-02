@@ -49,7 +49,7 @@ class AboutUsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 40.w), // To balance the back button
+                  SizedBox(width: 40.w),
                 ],
               ),
             ),

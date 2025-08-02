@@ -32,10 +32,7 @@ class _CuratedPicksScreenState extends State<CuratedPicksScreen> {
 
   Future<void> _loadRecommendations() async {
     final appState = context.read<ApplicationState>();
-    await appState.giftpotState.fetchGiftRecommendationsData(
-      occasion: widget.occasion,
-      priceRange: widget.priceRange,
-    );
+    await appState.giftpotState.fetchGiftRecommendationsData(occasion: widget.occasion, priceRange: widget.priceRange,);
     if(!mounted) return;
     setState(() {
       _recommendations = appState.giftpotState.recommendations;
@@ -45,14 +42,6 @@ class _CuratedPicksScreenState extends State<CuratedPicksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final products = [
-    //   {'image': AppAssets.product, 'price': '15', 'title': 'Headphones'},
-    //   {'image': AppAssets.product, 'price': '150', 'title': 'Headphones'},
-    //   {'image': AppAssets.product, 'price': '40', 'title': 'Headphones'},
-    //   {'image': AppAssets.product, 'price': '150', 'title': 'Headphones'},
-    //   {'image': AppAssets.product, 'price': '150', 'title': 'Headphones'},
-    //   {'image': AppAssets.product, 'price': '150', 'title': 'Headphones'},
-    // ];
     return Scaffold(
       backgroundColor: const Color(0xFFF9F6F3),
       body: SafeArea(
@@ -124,7 +113,7 @@ class _CuratedPicksScreenState extends State<CuratedPicksScreen> {
               ),
             ),
             SizedBox(height: 16.h),
-            //changes made  by Rafay
+            //changes made  by Rafaiya
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w),

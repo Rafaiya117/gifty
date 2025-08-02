@@ -139,19 +139,17 @@ class _PersonalMatchWhatProudScreenState extends State<PersonalMatchWhatProudScr
                     shadowColor: const Color.fromRGBO(100, 100, 111, 0.2),
                   ),
                   // onPressed: selectedIdx != null ? () => context.push('/personal-match-feel') : null,
-                  onPressed: selectedIdx != null
-                      ? () {
-                          final appState = context.read<ApplicationState>();
-                          appState.giftpotState.addResponseFormAnswer(
-                            ResponseFormItem(
-                              question: 'What type of gifts do you feel proudest to give?',
-                              responseText: options[selectedIdx!],
-                            ),
-                          );
-                          // Navigate to the next screen
-                          context.push('/personal-match-feel');
-                        }
-                      : null,
+                  onPressed: selectedIdx != null ? () {
+                    final appState = context.read<ApplicationState>();
+                    appState.giftpotState.addResponseFormAnswer(
+                      ResponseFormItem(
+                        question: 'What type of gifts do you feel proudest to give?',
+                        responseText: options[selectedIdx!],
+                      ),
+                    );
+                    // Navigate to the next screen
+                    context.push('/personal-match-feel');
+                  } : null,
                   child: Text(
                     'Next',
                     style: GoogleFonts.poppins(

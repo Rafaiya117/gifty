@@ -142,11 +142,7 @@ class _PersonalMatchReasonScreenState extends State<PersonalMatchReasonScreen> {
                     elevation: 4,
                     shadowColor: const Color.fromRGBO(100, 100, 111, 0.2),
                   ),
-                  onPressed: selectedIdx != null
-                      ? () {
-                    // Your next action here
-                  }
-                      : null,
+                  onPressed: selectedIdx != null ? () {} : null,
                   child: Text(
                     'Next',
                     style: GoogleFonts.poppins(

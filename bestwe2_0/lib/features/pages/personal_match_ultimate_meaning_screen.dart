@@ -139,17 +139,16 @@ class _PersonalMatchUltimateMeaningScreenState extends State<PersonalMatchUltima
                     shadowColor: const Color.fromRGBO(100, 100, 111, 0.2),
                   ),
                   // onPressed: selectedIdx != null ? () => context.push('/personal-match-result-memory-maker') : null,
-                  onPressed: selectedIdx != null
-                      ? () {
-                          final appState = context.read<ApplicationState>();
-                          appState.giftpotState.addResponseFormAnswer(
-                            ResponseFormItem(
-                              question: 'Ultimately, what would make your gift-giving feel more meaningful?',
-                              responseText: options[selectedIdx!],
-                            ),
-                          );
-                          context.push('/personal-match-result-memory-maker');
-                      }:null,
+                  onPressed: selectedIdx != null ? () {
+                    final appState = context.read<ApplicationState>();
+                    appState.giftpotState.addResponseFormAnswer(
+                      ResponseFormItem(
+                        question: 'Ultimately, what would make your gift-giving feel more meaningful?',
+                        responseText: options[selectedIdx!],
+                      ),
+                    );
+                    context.push('/personal-match-result-memory-maker');
+                  }:null,
                   child: Text(
                     'Next',
                     style: GoogleFonts.poppins(

@@ -42,6 +42,7 @@ class GiftPot {
   }
 }
 
+//...........Gift Recommendation Model...........//
 class GiftRecommendation {
   final String? name;
   final String? reason;
@@ -72,14 +73,11 @@ class GiftRecommendation {
       price: json['price']?.toString(),
       description: json['description']?.toString(),
       occasion: json['occasion']?.toString(),
-      responseFormData: json['response_form_data'] != null &&
-              json['response_form_data'] is List
-          ? (json['response_form_data'] as List)
-              .map((item) => ResponseFormItem.fromJson(item))
-              .toList()
-          : [],
-    );
-  }
+      responseFormData: json['response_form_data'] != null && json['response_form_data'] is List
+          ? (json['response_form_data'] as List).map((item) => ResponseFormItem.fromJson(item))
+          .toList() : [],
+      );
+    }
 
   Map<String, dynamic> toJson() {
     return {
@@ -96,7 +94,7 @@ class GiftRecommendation {
 }
 
 
-//Gift Recondation model
+//Gift Recondation question_answer model
 class ResponseFormItem {
   final String? question;
   final String? responseText;

@@ -1,14 +1,11 @@
 class TermsModel {
   final String content;
-
   TermsModel({required this.content});
-
   factory TermsModel.fromJson(Map<String, dynamic> json) {
     return TermsModel(
       content: json['content'] ?? '',
     );
   }
-
   Map<String, dynamic> toJson() {
     return {
       'content': content,
@@ -16,6 +13,7 @@ class TermsModel {
   }
 }
 
+///..........Privacy Mode..........///
 class PrivacyModel {
   final String content;
 
@@ -33,6 +31,8 @@ class PrivacyModel {
     };
   }
 }
+
+///..........About Model..........///
 
 class AboutUsModel{
   final String content;

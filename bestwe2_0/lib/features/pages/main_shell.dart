@@ -37,7 +37,6 @@ class _MainShellState extends State<MainShell> {
             body = const ProfileScreen();
             break;
         }
-
         return Scaffold(
           body: body,
           bottomNavigationBar: BottomNavBar(

@@ -57,24 +57,13 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
                     ),
                   ),
                   GestureDetector(
-                    // onTap: () {
-                    //   // Simulate save and pop
-                    //   context.pop();
-                    // },
                     onTap: () async {
                       final formattedDate = DateFormat('yyyy-MM-dd').format(widget.selectedDate);
                       final formattedTime = _time.format(context);
-                      final note = _title.isEmpty
-                          ? "Reminder set at $formattedTime"
-                          : _title;
-
+                      final note = _title.isEmpty ? "Reminder set at $formattedTime" : _title;
                       final appState = context.read<ApplicationState>();
                       try {
-                        await appState.giftpotState.createNote(
-                          noteDate: formattedDate,
-                          note: note,
-                        );
-
+                        await appState.giftpotState.createNote(noteDate: formattedDate, note: note,);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
@@ -87,7 +76,7 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
                       } catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text('❌ Failed to create note: $e'),
+                            content: Text('Failed to create note: $e'),
                             backgroundColor: Colors.red,
                           ),
                         );
@@ -154,15 +143,13 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(24.r),
                       ),
-                      child: _title.isNotEmpty
-                          ? Text(
+                      child: _title.isNotEmpty ? Text(
                         _title,
                         style: GoogleFonts.poppins(
                           fontSize: 16.sp,
                           color: const Color(0xFF5B4025),
                         ),
-                      )
-                          : Text(
+                      ) : Text(
                         'Enter title',
                         style: GoogleFonts.poppins(
                           fontSize: 16.sp,
@@ -196,7 +183,6 @@ class _SetReminderScreenState extends State<SetReminderScreen> {
                         setState(() => _time = picked);
                       }
                     },
-
                     child: Container(
                       width: double.infinity,
                       margin: EdgeInsets.only(bottom: 20.h),

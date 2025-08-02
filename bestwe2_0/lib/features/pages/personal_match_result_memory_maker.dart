@@ -13,8 +13,7 @@ class PersonalMatchResultMemoryMakerScreen extends StatefulWidget {
   _PersonalMatchResultMemoryMakerScreenState createState() => _PersonalMatchResultMemoryMakerScreenState();
 }
 
-class _PersonalMatchResultMemoryMakerScreenState
-    extends State<PersonalMatchResultMemoryMakerScreen> {
+class _PersonalMatchResultMemoryMakerScreenState extends State<PersonalMatchResultMemoryMakerScreen> {
   bool _isLoading = false; // The loading state
 
   @override
@@ -129,13 +128,10 @@ class _PersonalMatchResultMemoryMakerScreenState
                     elevation: 4,
                     shadowColor: const Color.fromRGBO(100, 100, 111, 0.2),
                   ),
-                  onPressed: _isLoading
-                      ? null // Disable the button while loading
-                      : () async {
+                  onPressed: _isLoading ? null : () async {
                     setState(() {
-                      _isLoading = true; // Show loading indicator
+                      _isLoading = true;
                     });
-
                     try {
                       final recommendation = await appState.giftpotState.fetchGiftRecommendation(
                         userName: 'Rahim',
@@ -144,18 +140,17 @@ class _PersonalMatchResultMemoryMakerScreenState
                         responseFormData: appState.giftpotState.responseFormAnswers,
                       );
                       setState(() {
-                        _isLoading = false; // Hide loading indicator after fetching
+                        _isLoading = false;
                       });
                       context.go('/personal-match-recommend-memory-maker', extra: recommendation);
                     } catch (e) {
                       setState(() {
-                        _isLoading = false; // Hide loading indicator on error
+                        _isLoading = false;
                       });
                       print("Error fetching recommendation: $e");
                     }
                   },
-                  child: _isLoading
-                      ? SizedBox(
+                  child: _isLoading ? SizedBox(
                     width: 24.w,
                     height: 24.h,
                     child: CircularProgressIndicator(

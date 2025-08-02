@@ -127,7 +127,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/set-reminder',
       builder: (context, state) {
-        final selectedDate = state.extra as DateTime; // or parse query param
+        final selectedDate = state.extra as DateTime;
         return SetReminderScreen(selectedDate: selectedDate);
       },
     ),

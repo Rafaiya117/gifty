@@ -143,18 +143,16 @@ class _PersonalMatchHowThinkScreenState extends State<PersonalMatchHowThinkScree
                     shadowColor: const Color.fromRGBO(100, 100, 111, 0.2),
                   ),
                   // onPressed: selectedIdx != null ? () => context.push('/personal-match-ultimate-meaning') : null,
-                  onPressed: selectedIdx != null
-                      ? () {
-                          final appState = context.read<ApplicationState>();
-                          appState.giftpotState.addResponseFormAnswer(
-                            ResponseFormItem(
-                              question: 'How do you want recipients to think of you after receiving your gift?',
-                              responseText: options[selectedIdx!],
-                            ),
-                          );
-                          context.push('/personal-match-ultimate-meaning');
-                        }
-                      : null,
+                  onPressed: selectedIdx != null ? () {
+                    final appState = context.read<ApplicationState>();
+                    appState.giftpotState.addResponseFormAnswer(
+                      ResponseFormItem(
+                        question: 'How do you want recipients to think of you after receiving your gift?',
+                        responseText: options[selectedIdx!],
+                      ),
+                    );
+                    context.push('/personal-match-ultimate-meaning');
+                  } : null,
                   child: Text(
                     'Next',
                     style: GoogleFonts.poppins(

@@ -77,7 +77,7 @@ class PersonalMatchRecommendMemoryMakerScreen extends StatelessWidget {
                     ),
                     Text(
                       // 'A custom Family Portrait',
-                      recommendation?.name ?? 'Gift Name',
+                      recommendation.name ?? 'Gift Name',
                       style: GoogleFonts.poppins(
                         fontSize: 32.sp,
                         fontWeight: FontWeight.w700,
@@ -119,9 +119,9 @@ class PersonalMatchRecommendMemoryMakerScreen extends StatelessWidget {
                             color: const Color(0xFFF3F3F3),
                             borderRadius: BorderRadius.circular(16.r),
                           ),
-                          child: recommendation?.image != null
+                          child: recommendation.image != null
                               ? Image.network(
-                                  recommendation!.image!,
+                                  recommendation.image!,
                                   fit: BoxFit.contain,
                                 )
                               : Image.asset(
@@ -147,7 +147,7 @@ class PersonalMatchRecommendMemoryMakerScreen extends StatelessWidget {
                             ),
                             child: Text(
                               // '\$15',
-                              recommendation?.price != null ? '\$${recommendation!.price}' : '\$--',
+                              recommendation.price != null ? '\$${recommendation.price}' : '\$--',
                               style: GoogleFonts.poppins(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w600,

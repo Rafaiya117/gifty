@@ -10,11 +10,7 @@ class ChatService {
   String? _sessionId;
   String? get sessionId => _sessionId;
 
-  Future<String?> sendUserMessage({
-    required BuildContext context,
-    required String text,
-    required void Function(ChatMessage) onBotMessage,
-  }) async {
+  Future<String?> sendUserMessage({required BuildContext context, required String text, required void Function(ChatMessage) onBotMessage,}) async {
     final body = {
       'message': text,
       if (_sessionId != null) 'session_id': _sessionId,
@@ -37,12 +33,7 @@ class ChatService {
     return _sessionId;
   }
 
-  Future<void> sendFollowUpMessage({
-    required BuildContext context,
-    required String message,
-    required void Function(dynamic) onRawMessage,
-    required void Function(List<Map<String, dynamic>>) onProducts,
-  }) async {
+  Future<void> sendFollowUpMessage({required BuildContext context, required String message, required void Function(dynamic) onRawMessage, required void Function(List<Map<String, dynamic>>) onProducts,}) async {
     if (_sessionId == null) return;
 
     final appState = context.read<ApplicationState>();
@@ -57,7 +48,6 @@ class ChatService {
 
     if (rawMessage is String) {
       rawMessage = rawMessage.trim();
-
       try {
         final decoded = jsonDecode(rawMessage);
         if (decoded is List) {
@@ -69,7 +59,6 @@ class ChatService {
         }
       } catch (_) {}
     }
-
     onRawMessage(rawMessage.toString());
     onProducts([]);
   }

@@ -33,9 +33,7 @@ class _SharedGivingSuggestionsScreenState extends State<SharedGivingSuggestionsS
 
   Future<void> _loadRecommendations() async {
     final appState = context.read<ApplicationState>();
-
     await appState.giftpotState.fetchGiftRecommendationsData(occasion: widget.occasion,priceRange: widget.priceRange,);
-
     setState(() {
       _recommendations = appState.giftpotState.recommendations;
       _isLoading = false;
@@ -44,48 +42,6 @@ class _SharedGivingSuggestionsScreenState extends State<SharedGivingSuggestionsS
 
   @override
   Widget build(BuildContext context) {
-    // final products = [
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '250',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '150',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '40',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '150',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '150',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '150',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '150',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    //   {
-    //     'image': AppAssets.product,
-    //     'price': '150',
-    //     'title': 'Wireless Earbuds',
-    //   },
-    // ];
     return Scaffold(
       backgroundColor: const Color(0xFFF9F6F3),
       body: SafeArea(
