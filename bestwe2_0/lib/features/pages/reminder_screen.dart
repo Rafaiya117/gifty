@@ -1,4 +1,5 @@
 import 'package:bestwe2_0/app_State/app_State.dart';
+import 'package:bestwe2_0/widgets/reminder_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -141,27 +142,25 @@ class _ReminderScreenState extends State<ReminderScreen> {
                     border: Border.all(color: Colors.grey.shade200),
                   ),
                   child: Consumer<ApplicationState>(
-                  builder: (context, appState, _) {
-                    final notes = appState.giftpotState.note;
+                    builder: (context, appState, _) {
+                      final notes = appState.giftpotState.note;
+
                       if (notes.isEmpty) {
                         return Padding(
                           padding: EdgeInsets.all(16.w),
                           child: Text(
                             'No notes found',
-                              style: GoogleFonts.poppins(fontSize: 14.sp, color: Colors.grey),
-                            ),
-                          );
-                        }     
+                            style: GoogleFonts.poppins(fontSize: 14.sp, color: Colors.grey),
+                          ),
+                        );
+                      }
 
-                      return ListView.builder(
+                      return ListView(
                         shrinkWrap: true,
-                        physics:const NeverScrollableScrollPhysics(), // allows nested scroll
-                        itemCount: notes.length,
-                        itemBuilder: (context, index) {
-                          final note = notes[index];
+                        physics: const NeverScrollableScrollPhysics(), // allows nested scroll
+                        children: notes.map((note) {
                           return Container(
-                            margin: EdgeInsets.symmetric(vertical: 8.h,horizontal: 16.w,
-                      ),
+                            margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
                             padding: EdgeInsets.all(16.w),
                             decoration: BoxDecoration(
                               color: const Color(0xFFF9F6F3),
@@ -204,12 +203,18 @@ class _ReminderScreenState extends State<ReminderScreen> {
                               ],
                             ),
                           );
-                        },
+                        }).toList(),
                       );
                     },
                   ),
                 );
               },
+            ),
+            Consumer<ApplicationState>(
+                builder: (context, appState,_){
+                  final notes = appState.giftpotState.note;
+                  return NoteListScreen(notes: notes,);
+                }
             ),
           ],
         ),

@@ -245,6 +245,7 @@ Future<String?> createGiftPot({required String productName, required String prod
       if (response.statusCode == 200 && response.data is List) {
         _note = (response.data as List).map((e) => Note.fromJson(e)).toList();
         notifyListeners();
+        print("!..............notes finds ${note.length} ");
       }
     } catch (e) {
       print("❌ Error fetching notes: $e");

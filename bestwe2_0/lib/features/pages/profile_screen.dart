@@ -47,34 +47,40 @@ class ProfileScreen extends StatelessWidget {
                   right: 0,
                   child: Column(
                     children: [
-                      Consumer<ApplicationState>(
-                        builder: (context, appState, child) {
-                          if (appState.authState.isLoading) {
-                            return const CircularProgressIndicator();
+                      FutureBuilder<void>(
+                        future: Provider.of<ApplicationState>(context, listen: false).ensureInitialized(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState != ConnectionState.done) {
+                            return const Center(child: CircularProgressIndicator());
                           }
-                          final user = appState.userState.userList.isNotEmpty
-                              ? appState.userState.userList.first
-                              : null;
-                          // Fallback avatar image if user is null or has no image
-                          final imageUrl = fixImageUrl(user?.image ?? 'https://randomuser.me/api/portraits/men/1.jpg');
-                          return Column(
-                            children: [
-                              CircleAvatar(
-                                radius: 56.r,
-                                backgroundImage: NetworkImage(imageUrl),
-                                backgroundColor: Colors.white,
-                              ),
-                              SizedBox(height: 12.h),
-                              Text(
-                                user?.full_name ?? 'Guest User',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 22.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color(0xFF5B4025),
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+
+                          return Consumer<ApplicationState>(
+                            builder: (context, appState, _) {
+                              if (appState.authState.isLoading) {
+                                return const Center(child: CircularProgressIndicator());
+                              }
+                              final user = appState.userState.userList.isNotEmpty ? appState.userState.userList.first : null;
+                              final imageUrl = fixImageUrl(user?.image ?? 'https://randomuser.me/api/portraits/men/1.jpg');
+                              return Column(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 56.r,
+                                    backgroundImage: NetworkImage(imageUrl),
+                                    backgroundColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 12.h),
+                                  Text(
+                                    user?.full_name ?? 'Guest User',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 22.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color(0xFF5B4025),
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              );
+                            },
                           );
                         },
                       ),

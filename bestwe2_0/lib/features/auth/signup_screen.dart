@@ -246,7 +246,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           SizedBox(height: 20.h),
                           TextButton(
-                            onPressed: () => Navigator.pushNamed(context, '/login'),
+                            onPressed: () => context.push('/login'),
                             child: Text(
                               "Already have an account? Login",
                               style: GoogleFonts.poppins(fontSize: 15.sp, color: const Color(0xFF5B4025)),
@@ -266,10 +266,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Widget labelText(String text) => Padding(
-        padding: EdgeInsets.only(bottom: 8.h),
-        child: Text(
-          text,
-          style: GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.w500, color: const Color(0xFF5B4025)),
+    padding: EdgeInsets.only(bottom: 8.h),
+     child: Text(
+       text,
+       style: GoogleFonts.poppins(fontSize: 16.sp, fontWeight: FontWeight.w500, color: const Color(0xFF5B4025)),
         ),
       );
 

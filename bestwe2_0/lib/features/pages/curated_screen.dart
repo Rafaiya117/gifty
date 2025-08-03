@@ -172,12 +172,26 @@ class _CuratedPicksScreenState extends State<CuratedPicksScreen> {
                                 Positioned(
                                   top: 12.h,
                                   right: 12.w,
-                                  child: Text(
-                                    '${gift.price}\$',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color(0xFF5B4025),
+                                  child: Container(
+                                    padding:EdgeInsets.symmetric(horizontal:10, vertical:4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(12),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.08),
+                                          blurRadius: 4,
+                                          offset: const Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Text(
+                                      '${gift.price}\$',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color(0xFF5B4025),
+                                      ),
                                     ),
                                   ),
                                 ),

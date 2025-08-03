@@ -53,10 +53,7 @@ class NotificationsScreen extends StatelessWidget {
                             return const Center(child: Text("No notes found"));
                           }
                           return ListView.separated(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 12.w,
-                              vertical: 8.h,
-                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h,),
                             itemCount: unotification.length,
                             separatorBuilder: (_, __) => SizedBox(height: 8.h),
                             itemBuilder: (context, index) {
@@ -64,19 +61,11 @@ class NotificationsScreen extends StatelessWidget {
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    width: 48.w,
-                                    height: 48.w,
-                                    margin: EdgeInsets.only(
-                                      right: 12.w,
-                                      top: 4.h,
-                                    ),
+                                  Container(width: 48.w, height: 48.w,
+                                    margin: EdgeInsets.only(right: 12.w, top: 4.h,),
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: const Color(0xFF5B4025),
-                                        width: 1.5,
-                                      ),
+                                      border: Border.all(color: const Color(0xFF5B4025), width: 1.5,),
                                     ),
                                     child: ClipOval(
                                       child: Image.asset(
@@ -87,24 +76,22 @@ class NotificationsScreen extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        vertical: 8.h,
-                                      ),
+                                      padding: EdgeInsets.symmetric(vertical: 8.h,),
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Row(
                                             children: [
-                                              Text(
-                                                unotifications.notificationDate,
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 16.sp,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: const Color(0xFF5B4025),
+                                              Expanded(
+                                                child: Text(
+                                                  unotifications.notificationDate,
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 16.sp,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: const Color(0xFF5B4025),
+                                                  ),
                                                 ),
                                               ),
-                                              SizedBox(width: 120.w),
                                               Text(
                                                 unotifications.createdAt,
                                                 style: GoogleFonts.poppins(
@@ -137,7 +124,6 @@ class NotificationsScreen extends StatelessWidget {
                 },
               ),
             ),
-
           ],
         ),
       ),

@@ -14,7 +14,6 @@ class ApplicationState extends ChangeNotifier {
   late final Dio _dio;
   late final String apiKey;
   late final String baseUrl;
-
   late final AuthState authState;
   late final UserState userState;
   late final GiftpotState giftpotState;

@@ -177,30 +177,28 @@ class _LoginScreenState extends State<LoginScreen> {
                                       elevation: 0,
                                     ),
                                     onPressed: () async {
-                                      context.push('/main');
-                                      // if (_formKey.currentState!.validate()) {
-                                      //   final String email = _emailController.text;
-                                      //   final String password = _passwordController.text;
-                                      //
-                                      //   setState(() => appState.authState.isLoading == true);
-                                      //
-                                      //   final success = await appState.authState.login(email, password);
-                                      //
-                                      //   setState(() => appState.authState.isLoading ==false);
-                                      //
-                                      //   if (success) {
-                                      //     ScaffoldMessenger.of(context).showSnackBar(
-                                      //       SnackBar(content: Text('Login Successful')),
-                                      //     );
-                                      //     context.push('/main');
-                                      //   } else {
-                                      //     ScaffoldMessenger.of(context).showSnackBar(
-                                      //       SnackBar(content: Text('Invalid email or password')),
-                                      //     );
-                                      //   }
-                                      // }
-                                    },
+                                      if (_formKey.currentState!.validate()) {
+                                        final String email = _emailController.text;
+                                        final String password = _passwordController.text;
 
+                                        setState(() => appState.authState.isLoading == true);
+
+                                        final success = await appState.authState.login(email, password);
+
+                                        setState(() => appState.authState.isLoading ==false);
+
+                                        if (success) {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(content: Text('Login Successful')),
+                                          );
+                                          context.push('/main');
+                                        } else {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(content: Text('Invalid email or password')),
+                                          );
+                                        }
+                                      }
+                                    },
                                     child: Text(
                                       'Login',
                                       style: GoogleFonts.poppins(

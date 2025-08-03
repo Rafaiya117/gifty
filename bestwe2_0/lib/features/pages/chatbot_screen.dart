@@ -148,7 +148,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     // Display chat messages if available
                     if (_messages.isNotEmpty)
                       ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: _messages.length,
                         itemBuilder: (context, idx) {
@@ -180,32 +180,32 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                       ),
 
                     // Relationship suggestions horizontal list (optional)
-                    if (_messages.isNotEmpty)
-                      SizedBox(
-                        height: 48,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          children: relationshipSuggestions.map(
-                                (label) => Container(
-                              margin: const EdgeInsets.only(right: 8),
-                              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(24),
-                                border: Border.all(color: const Color(0xFFEAEAEA)),
-                              ),
-                              child: Text(
-                                label,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 15,
-                                  color: const Color(0xFF5B4025),
-                                ),
-                              ),
-                            ),
-                          ).toList(),
-                        ),
-                      ),
+                    // if (_messages.isNotEmpty)
+                    //   SizedBox(
+                    //     height: 48,
+                    //     child: ListView(
+                    //       scrollDirection: Axis.horizontal,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 8),
+                    //       children: relationshipSuggestions.map(
+                    //             (label) => Container(
+                    //           margin: const EdgeInsets.only(right: 8),
+                    //           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                    //           decoration: BoxDecoration(
+                    //             color: Colors.white,
+                    //             borderRadius: BorderRadius.circular(24),
+                    //             border: Border.all(color: const Color(0xFFEAEAEA)),
+                    //           ),
+                    //           child: Text(
+                    //             label,
+                    //             style: GoogleFonts.poppins(
+                    //               fontSize: 15,
+                    //               color: const Color(0xFF5B4025),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       ).toList(),
+                    //     ),
+                    //   ),
                   ],
                 ),
               ),
@@ -265,7 +265,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
 }
   class _SuggestionsSection extends StatelessWidget {
   // const _SuggestionsSection();
-  final Function(String) onSuggestionTap; // This will be the callback function
+  final Function(String) onSuggestionTap; // on tap fill the input added by Rafaiya
 
   const _SuggestionsSection({Key? key, required this.onSuggestionTap}) : super(key: key);
   @override
